@@ -1,0 +1,3 @@
+WPORT=9999;
+echo http://localhost:$WPORT ;
+python -m SimpleHTTPServer $WPORT

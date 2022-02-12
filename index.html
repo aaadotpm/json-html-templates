@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSON and HTML templates</title>
+</head>
+<body>
+  <h1>Notes</h1>
+  <div id="note-list">
+    Note list
+  </div>
+
+  <template id="note-preview">
+    <div class="note-preview grid grid-compact">
+      <h2 class="note-preview-title">
+        <a href="#link" class="note-preview-link">Title</a>
+      </h2>
+
+      <p class="note-preview-introduction">Introduction</p>
+    </div>
+  </template>
+
+  <script type="module">
+    import { loadNotes } from '/load-notes.js'
+
+    loadNotes({
+      container: document.querySelector('#note-list'),
+      template: document.querySelector('#note-preview'),
+      dataUrl: '/notes.json',
+      urlPrefix: '/notes/'
+    })
+  </script>
+</body>
+</html>
